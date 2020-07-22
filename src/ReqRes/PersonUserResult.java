@@ -9,7 +9,7 @@ public class PersonUserResult
     /**
      * An array containing Persons associated with the User
      */
-    private Person[] data;
+    private PersonResult[] data;
     /**
      * The response message
      */
@@ -25,7 +25,7 @@ public class PersonUserResult
      * @param success
      * @param message
      */
-    public PersonUserResult(Person[] data, boolean success, String message)
+    public PersonUserResult(PersonResult[] data, boolean success, String message)
     {
         setData(data);
         setSuccess(success);
@@ -40,12 +40,12 @@ public class PersonUserResult
 
     }
 
-    public Person[] getData()
+    public PersonResult[] getData()
     {
         return data;
     }
 
-    public void setData(Person[] data)
+    public void setData(PersonResult[] data)
     {
         this.data = data;
     }

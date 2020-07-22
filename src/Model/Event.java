@@ -10,11 +10,11 @@ public class Event
     /**
      * A String containing the event ID
      */
-    private String id;
+    private String eventID;
     /**
      * A String containing the username associated with this event
      */
-    private String userName;
+    private String associatedUsername;
     /**
      * A String containing the personID associated with this event
      */
@@ -58,8 +58,8 @@ public class Event
      */
     public Event(String id, String userName, String personID, Float latitude, Float longitude, String country, String city, String eventType, Integer year)
     {
-        this.id = id;
-        this.userName = userName;
+        this.eventID = id;
+        this.associatedUsername = userName;
         this.personID = personID;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -79,22 +79,22 @@ public class Event
 
     public String getId()
     {
-        return id;
+        return eventID;
     }
 
     public void setId(String id)
     {
-        this.id = id;
+        this.eventID = id;
     }
 
     public String getUserName()
     {
-        return userName;
+        return associatedUsername;
     }
 
     public void setUserName(String userName)
     {
-        this.userName = userName;
+        this.associatedUsername = userName;
     }
 
     public String getPersonID()

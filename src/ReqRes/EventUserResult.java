@@ -10,7 +10,7 @@ public class EventUserResult
     /**
      * An array containing Events
      */
-    private Event[] data;
+    private EventResult[] data;
     /**
      * A String containing an error message
      */
@@ -26,7 +26,7 @@ public class EventUserResult
      * @param success
      * @param message
      */
-    public EventUserResult(Event[] data, boolean success, String message)
+    public EventUserResult(EventResult[] data, boolean success, String message)
     {
         this.data = data;
         this.success = success;
@@ -41,12 +41,12 @@ public class EventUserResult
 
     }
 
-    public Event[] getData()
+    public EventResult[] getData()
     {
         return data;
     }
 
-    public void setData(Event[] data)
+    public void setData(EventResult[] data)
     {
         this.data = data;
     }
