@@ -49,7 +49,7 @@ public class PersonAccess
         }
         catch(SQLException ex)
         {
-            throw new DBException("Unable to insert User");
+            throw new DBException("Error Unable to insert Person");
         }
     }
 

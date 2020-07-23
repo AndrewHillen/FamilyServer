@@ -24,6 +24,7 @@ public class ClearService
     {
         db = new Database();
         result = new ClearResult();
+        conn = db.getConnection();
     }
 
     /**
@@ -35,20 +36,18 @@ public class ClearService
         try
         {
 
-            userDao = new UserAccess(db.openConnection());
+            userDao = new UserAccess(conn);
             userDao.clear();
-            db.closeConnection(true);
 
-            personDao = new PersonAccess(db.openConnection());
+            personDao = new PersonAccess(conn);
             personDao.clear();
-            db.closeConnection(true);
 
-            eventDao = new EventAccess(db.openConnection());
+            eventDao = new EventAccess(conn);
             eventDao.clear();
-            db.closeConnection(true);
 
-            authDao = new AuthTokenAccess(db.openConnection());
+            authDao = new AuthTokenAccess(conn);
             authDao.clear();
+
             db.closeConnection(true);
 
             result.setMessage("Clear succeeded");

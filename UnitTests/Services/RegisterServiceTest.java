@@ -28,6 +28,7 @@ class RegisterServiceTest
     @AfterEach
     void tearDown() throws DBException
     {
+        registerService.commit(false);
         clearService = new ClearService();
         clearService.clearDB();
     }
