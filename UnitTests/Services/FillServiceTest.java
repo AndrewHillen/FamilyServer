@@ -65,7 +65,7 @@ class FillServiceTest
         int personsInserted = calculateInserts(generations);
         int eventsInserted = ((personsInserted - 1) * 3) + 1;
 
-        String message = String.format("Succesfully added %d persons and %d events to the database.", personsInserted, eventsInserted);
+        String message = String.format("Successfully added %d persons and %d events to the database.", personsInserted, eventsInserted);
 
         expectedResult.setSuccess(true);
         expectedResult.setMessage(message);
