@@ -48,10 +48,12 @@ public class RegisterHandler extends Serializer implements HttpHandler
                 if(result.isSuccess())
                 {
                     regService.commit(true);
+                    exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
                 }
-
-                exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
-                //Turn it into JSON
+                else
+                {
+                    exchange.sendResponseHeaders(HttpURLConnection.HTTP_BAD_REQUEST, 0);
+                }
 
                 String resultString = DeSerialize(result);
                 //

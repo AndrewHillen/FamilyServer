@@ -36,8 +36,14 @@ public class PersonHandler extends Serializer implements HttpHandler
                         PersonUserResult result = personUserService.findFamily(token);
                         personUserService.commit(false);
 
-                        exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
-
+                        if(result.isSuccess())
+                        {
+                            exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
+                        }
+                        else
+                        {
+                            exchange.sendResponseHeaders(HttpURLConnection.HTTP_BAD_REQUEST, 0);
+                        }
                         String resultString = DeSerialize(result);
 
                         OutputStream responseBody = exchange.getResponseBody();
@@ -52,8 +58,14 @@ public class PersonHandler extends Serializer implements HttpHandler
                         PersonResult result = personService.searchPerson(request);
                         personService.commit(false);
 
-                        exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
-
+                        if(result.isSuccess())
+                        {
+                            exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
+                        }
+                        else
+                        {
+                            exchange.sendResponseHeaders(HttpURLConnection.HTTP_BAD_REQUEST, 0);
+                        }
                         String resultString = DeSerialize(result);
 
                         OutputStream responseBody = exchange.getResponseBody();

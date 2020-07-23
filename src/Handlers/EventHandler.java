@@ -36,8 +36,14 @@ public class EventHandler extends Serializer implements HttpHandler
                         EventUserResult result = eventUserService.findEvents(token);
                         eventUserService.commit(false);
 
-                        exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
-
+                        if(result.isSuccess())
+                        {
+                            exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
+                        }
+                        else
+                        {
+                            exchange.sendResponseHeaders(HttpURLConnection.HTTP_BAD_REQUEST, 0);
+                        }
                         String resultString = DeSerialize(result);
 
                         OutputStream responseBody = exchange.getResponseBody();
@@ -52,8 +58,14 @@ public class EventHandler extends Serializer implements HttpHandler
                         EventResult result = eventService.searchEvents(request);
                         eventService.commit(false);
 
-                        exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
-
+                        if(result.isSuccess())
+                        {
+                            exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
+                        }
+                        else
+                        {
+                            exchange.sendResponseHeaders(HttpURLConnection.HTTP_BAD_REQUEST, 0);
+                        }
                         String resultString = DeSerialize(result);
 
                         OutputStream responseBody = exchange.getResponseBody();
@@ -65,9 +77,7 @@ public class EventHandler extends Serializer implements HttpHandler
 
 
                 }
-                //Do a bunch of other stuff before this
-                OutputStream respBody = exchange.getResponseBody();
-                responseWriter("", respBody);
+
             }
             if (!success)
             {

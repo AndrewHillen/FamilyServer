@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 
 import com.sun.net.httpserver.*;
 
-public class FileHandler implements HttpHandler
+public class FileHandler extends Serializer implements HttpHandler
 {
     @Override
     public void handle(HttpExchange exchange) throws IOException
@@ -19,7 +19,7 @@ public class FileHandler implements HttpHandler
             if(!exchange.getRequestMethod().toLowerCase().equals("get"))
             {
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_BAD_METHOD, 0);
-                exchange.getRequestBody().close();
+                exchange.getResponseBody().close();
                 return;
             }
 
@@ -27,9 +27,14 @@ public class FileHandler implements HttpHandler
 
             if(  !urlPath.equals("/") && !urlPath.equals("/favicon.ico") && !urlPath.equals("/css/main.css") )
             {
+                StringBuilder notFoundPath = new StringBuilder(Paths.get("").toAbsolutePath().toString());
+                notFoundPath.append("/web/HTML/404.html");
+                File notFoundFile = new File(notFoundPath.toString());
                 //TODO: Change back to forbidden?
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_NOT_FOUND, 0);
-                exchange.getResponseBody().close();
+                OutputStream respBody = exchange.getResponseBody();
+                Files.copy(notFoundFile.toPath(), respBody);
+                respBody.close();
                 return;
             }
 
@@ -48,8 +53,13 @@ public class FileHandler implements HttpHandler
 
             if(!returnFile.exists())
             {
+                StringBuilder notFoundPath = new StringBuilder(Paths.get("").toAbsolutePath().toString());
+                notFoundPath.append("/web/HTML/404.html");
+                File notFoundFile = new File(notFoundPath.toString());
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_NOT_FOUND, 0);
-                exchange.getResponseBody().close();
+                OutputStream respBody = exchange.getResponseBody();
+                Files.copy(notFoundFile.toPath(), respBody);
+                respBody.close();
                 return;
             }
 

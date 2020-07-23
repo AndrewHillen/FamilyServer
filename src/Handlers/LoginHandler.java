@@ -42,8 +42,15 @@ public class LoginHandler extends Serializer implements HttpHandler
                 if(result.isSuccess())
                 {
                     loginService.commit(true);
+
+                    exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
                 }
-                exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
+
+                //TODO: Change made here
+                else
+                {
+                    exchange.sendResponseHeaders(HttpURLConnection.HTTP_BAD_REQUEST, 0);
+                }
                 //Turn it into JSON
 
                 String resultString = DeSerialize(result);

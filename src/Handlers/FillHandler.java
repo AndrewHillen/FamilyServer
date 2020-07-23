@@ -51,9 +51,13 @@ public class FillHandler extends Serializer implements HttpHandler
                 if(result.isSuccess())
                 {
                     fillService.commit(true);
+                    exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
                 }
 
-                exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
+                else
+                {
+                    exchange.sendResponseHeaders(HttpURLConnection.HTTP_BAD_REQUEST, 0);
+                }
                 //Turn it into JSON
 
                 String resultString = DeSerialize(result);
