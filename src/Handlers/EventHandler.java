@@ -30,7 +30,7 @@ public class EventHandler extends Serializer implements HttpHandler
                     String token = requestHeaders.getFirst("Authorization");
                     String urlPath = exchange.getRequestURI().toString();
 
-                    if(urlPath.equals("/events"))
+                    if(urlPath.equals("/event"))
                     {
                         EventUserService eventUserService = new EventUserService();
                         EventUserResult result = eventUserService.findEvents(token);
@@ -46,7 +46,7 @@ public class EventHandler extends Serializer implements HttpHandler
                     }
                     else
                     {
-                        String eventID = urlPath.substring(8);
+                        String eventID = urlPath.substring(7);
                         EventRequest request = new EventRequest(eventID, token);
                         EventService eventService = new EventService();
                         EventResult result = eventService.searchEvents(request);

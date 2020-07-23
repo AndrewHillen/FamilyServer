@@ -25,10 +25,11 @@ public class FileHandler implements HttpHandler
 
             String urlPath = exchange.getRequestURI().toString();
 
-            if( !( urlPath.equals("/") || urlPath.equals("/favicon.ico") || urlPath.equals("/css/main.css")) )
+            if(  !urlPath.equals("/") && !urlPath.equals("/favicon.ico") && !urlPath.equals("/css/main.css") )
             {
-                exchange.sendResponseHeaders(HttpURLConnection.HTTP_FORBIDDEN, 0);
-                exchange.getRequestBody().close();
+                //TODO: Change back to forbidden?
+                exchange.sendResponseHeaders(HttpURLConnection.HTTP_NOT_FOUND, 0);
+                exchange.getResponseBody().close();
                 return;
             }
 
@@ -48,7 +49,7 @@ public class FileHandler implements HttpHandler
             if(!returnFile.exists())
             {
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_NOT_FOUND, 0);
-                exchange.getRequestBody().close();
+                exchange.getResponseBody().close();
                 return;
             }
 
