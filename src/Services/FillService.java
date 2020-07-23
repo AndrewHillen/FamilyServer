@@ -83,7 +83,7 @@ public class FillService
             eventDao.deleteByUsername(username);
             postUserPerson(self);
 
-            String message = String.format("Succesfully added %d persons and %d events to the database.", personsInserted, eventsInserted);
+            String message = String.format("Successfully added %d persons and %d events to the database.", personsInserted, eventsInserted);
 
             result.setSuccess(true);
             result.setMessage(message);
@@ -218,8 +218,8 @@ public class FillService
         personsInserted++;
 
 
-        generateEvent(year - 24, selfIDs[0], "Birth");
-        generateEvent(year + 26, selfIDs[0], "Death");
+        generateEvent(year - 24, selfIDs[1], "Birth");
+        generateEvent(year + 26, selfIDs[1], "Death");
 
         return self;
     }
