@@ -7,7 +7,6 @@ import ReqRes.LoadRequest;
 import ReqRes.LoadResult;
 import ReqRes.RegisterRequest;
 import Services.LoadService;
-import Services.LoginService;
 import com.sun.net.httpserver.*;
 
 public class LoadHandler extends Serializer implements HttpHandler

@@ -2,7 +2,6 @@ package Services;
 import DataAccess.*;
 import ReqRes.EventResult;
 import ReqRes.EventUserResult;
-import Model.User;
 import Model.Event;
 import Model.AuthToken;
 

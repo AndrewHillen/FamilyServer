@@ -14,7 +14,6 @@ public class Server
     private void run(String portNumber)
     {
         System.out.println("Initializing HTTP Server");
-
         try
         {
             server = HttpServer.create(

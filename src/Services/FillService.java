@@ -208,7 +208,7 @@ public class FillService
                 username,
                 femaleName,
                 lastName,
-                "m",
+                "f",
                 parentIDs[0],
                 parentIDs[1],
                 selfIDs[0]

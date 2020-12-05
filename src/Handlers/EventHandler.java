@@ -6,8 +6,6 @@ import DataAccess.DBException;
 import ReqRes.*;
 import Services.EventService;
 import Services.EventUserService;
-import Services.PersonService;
-import Services.PersonUserService;
 import com.sun.net.httpserver.*;
 
 public class EventHandler extends Serializer implements HttpHandler

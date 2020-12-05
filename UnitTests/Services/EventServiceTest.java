@@ -3,7 +3,6 @@ package Services;
 import DataAccess.*;
 import Model.AuthToken;
 import Model.Event;
-import Model.Person;
 import ReqRes.EventRequest;
 import ReqRes.PersonRequest;
 import org.junit.jupiter.api.AfterEach;

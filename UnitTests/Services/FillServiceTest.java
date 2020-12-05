@@ -14,7 +14,6 @@ import ReqRes.FillResult;
 
 import java.io.IOException;
 import java.sql.Connection;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class FillServiceTest

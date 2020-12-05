@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import ReqRes.LoginRequest;
 import ReqRes.LoginResult;
 
-import java.io.IOException;
 import java.sql.Connection;
 
 import static org.junit.jupiter.api.Assertions.*;
